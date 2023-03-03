@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:GameJamMärz2023SAE/Assets/Scripts/CubeRotation.cs.meta
 guid: a93fcd22f4cc29549b1cd6d3e41c7de4
+========
+guid: 53af3ce8f97278849a9918815be9354a
+>>>>>>>> Stashed changes:GameJamMärz2023SAE/Assets/Scripts/MainMenuScript.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
