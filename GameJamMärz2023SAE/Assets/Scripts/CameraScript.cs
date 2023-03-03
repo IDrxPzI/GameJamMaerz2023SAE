@@ -30,7 +30,7 @@ public class CameraScript : MonoBehaviour
             angle.x += Input.GetAxis("Mouse Y") * 100 * sensitivity * Time.deltaTime; //Input for camera movement
         }
 
-        angle.x = Mathf.Clamp(angle.x, -80, 80); //clamps camera movement so player cant look through/at themself
+        angle.x = Mathf.Clamp(angle.x, -42, 30); //clamps camera movement so player cant look through/at themself
 
         //thisTransform.eulerAngles = angle;
 
