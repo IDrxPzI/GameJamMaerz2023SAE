@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -17,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 move;
     private Vector2 look;
+
     private Vector3 playerVelocity;
-    private Vector3 startPosition = new Vector3(0, 1, -11.6f);
+    //private Vector3 startPosition = new Vector3(0, 1, -11.6f);
 
     private MouseLook[] mouselook;
 
@@ -31,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        transform.position = startPosition;
+        //transform.position = startPosition;
 
         playerController = GetComponent<CharacterController>();
         mouselook = GetComponentsInChildren<MouseLook>();
@@ -156,11 +158,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Moon")
+        {
+            playerSpeed = 10;
+            gamesettings.gravityValue = -4;
+            gamesettings.jumpHeight = 1;
+        }
+
+        if (other.gameObject.tag == "Wasser")
+        {
+            playerSpeed = 10;
+        }
     }
 
-    private void OnDisable()
+    private void OnTriggerExit(Collider other)
     {
+        playerSpeed = 10;
+        gamesettings.gravityValue = -12f;
+        gamesettings.jumpHeight = 0.7f;
     }
 }

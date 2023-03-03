@@ -15,7 +15,7 @@ MonoBehaviour:
   moveSpeed: 2
   runSpeed: 3
   jumpHeight: 0.7
-  gravityValue: -9.81
+  gravityValue: -12
   dashSpeed: 10
   mouseSensitivityX: 0.1
   mouseSensitivityY: 0.1
