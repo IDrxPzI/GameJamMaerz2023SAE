@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
@@ -40,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    #region InputActions
 
     /// <summary>
     /// enables interaction with buttons{keycode.E} _ {ButtonWest/Gamepad}
@@ -114,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
             openMenu = false;
     }
 
+    #endregion
+
     private void Move(Vector2 direction)
     {
         isGrounded = playerController.isGrounded;
@@ -163,13 +168,14 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Moon")
         {
             playerSpeed = 10;
-            gamesettings.gravityValue = -4;
-            gamesettings.jumpHeight = 1;
+            gamesettings.gravityValue = -3;
+            gamesettings.jumpHeight = 1.5f;
         }
 
         if (other.gameObject.tag == "Wasser")
         {
-            playerSpeed = 10;
+            playerSpeed = 5;
+            //gamesettings.gravityValue = 
         }
     }
 
