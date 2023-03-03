@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Interactions;
 
 [RequireComponent(typeof(PlayerInput), typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -25,9 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
     private MouseLook[] mouselook;
 
+    private bool inWater;
     private bool jumped;
     private bool running;
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
     public static bool triggered { get; private set; }
     public static bool openMenu { get; private set; }
     public static int getInput { get; private set; }
@@ -127,6 +123,17 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0;
         }
 
+        if (inWater)
+        {
+            if (jumped)
+            {
+                playerVelocity.y += Mathf.Sqrt(gamesettings.jumpHeight * -3.0f * gamesettings.gravityValue);
+            }
+
+            jumped = false;
+        }
+
+
         Vector3 _move = new Vector3(direction.x, 0, direction.y);
         playerController.Move(transform.TransformDirection(_move) * Time.deltaTime * playerSpeed);
 
@@ -175,12 +182,14 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Wasser")
         {
             playerSpeed = 5;
-            //gamesettings.gravityValue = 
+            inWater = true;
+            gamesettings.gravityValue = -6;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        inWater = false;
         playerSpeed = 10;
         gamesettings.gravityValue = -12f;
         gamesettings.jumpHeight = 0.7f;
