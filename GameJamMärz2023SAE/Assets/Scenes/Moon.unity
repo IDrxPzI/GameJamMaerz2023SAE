@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34de52ea7eee3b14291456a26a8f914b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 35.48
+      value: 17.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34de52ea7eee3b14291456a26a8f914b, type: 3}
       propertyPath: m_LocalScale.z
@@ -194,6 +194,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moon
       objectReference: {fileID: 0}
+    - target: {fileID: 6110982367473178960, guid: 34de52ea7eee3b14291456a26a8f914b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecedaa804f9c776459397d54cc4c8b78, type: 2}
+    - target: {fileID: 8154664840605258934, guid: 34de52ea7eee3b14291456a26a8f914b, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: a26f892c13bd05743a1950d14bff5ef4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34de52ea7eee3b14291456a26a8f914b, type: 3}
 --- !u!1 &540626750
