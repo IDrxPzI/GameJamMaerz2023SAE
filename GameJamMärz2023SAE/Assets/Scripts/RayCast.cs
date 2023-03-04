@@ -14,7 +14,6 @@ public class RayCast : MonoBehaviour
     [SerializeField] private GameObject canvas;
 
     [SerializeField] private Animation animation;
-    [SerializeField] private AnimationClip AnimationClip;
 
     private Vector3 forward;
 
