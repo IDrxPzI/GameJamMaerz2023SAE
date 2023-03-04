@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Moon
   - Wasser
-  - Boid
+  - Collectables
   layers:
   - Default
   - TransparentFX
@@ -14,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Collectables
+  - Collector
   - 
-  - 
-  - 
-  - 
+  - Post Fx
   - 
   - 
   - 

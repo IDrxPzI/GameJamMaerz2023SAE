@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
@@ -21,7 +22,7 @@ public class MouseLook : MonoBehaviour
     {
         originalRotation = transform.localRotation;
     }
-
+    
     public void Look(Vector2 rotate)
     {
         switch (axes)

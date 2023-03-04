@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:GameJamMärz2023SAE/Assets/Scripts/AI-Boids.meta
 guid: 7427101a77cbadf4e80d2a9dbab57eba
+========
+guid: 59b3212e613e7954ab97a67c36089654
+>>>>>>>> main:GameJamMärz2023SAE/Assets/Animations.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
