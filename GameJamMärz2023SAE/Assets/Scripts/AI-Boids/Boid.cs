@@ -10,7 +10,30 @@ public class Boid : MonoBehaviour
 
     public float speed;
 
-    [SerializeField]private GameObject target;
+    public GameObject raycastObject;
+
+    public float radius;
+    public float alpha;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1, 1, 1, alpha);
+        Gizmos.DrawSphere(
+            new Vector3(transform.position.x - 0.5f, transform.position.y + 0.40f, transform.position.z - 0.45f),
+            radius);
+    }
+
+    void CheckForHit()
+    {
+        // Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        // Debug.DrawRay(new Vector3(transform.position.x - 0.5f, transform.position.y + 0.40f, transform.position.z),
+        //     fwd * 10, Color.green);
+        // RaycastHit objectHit;
+
+        Physics.CheckSphere(
+            new Vector3(transform.position.x - 0.5f, transform.position.y + 0.40f, transform.position.z - 0.45f),
+            radius);
+    }
 
     private void Start()
     {
@@ -19,18 +42,8 @@ public class Boid : MonoBehaviour
 
     private void Update()
     {
-        desiredVelocity += (target.transform.position - transform.position).normalized * speed;
-
-        desiredVelocity += Alignment();
-        desiredVelocity += Cohesion();
-        desiredVelocity += Separation();
-
-        Vector3 diff = desiredVelocity - currentVelocity;
-        currentVelocity += diff * Time.deltaTime;
-
-        currentVelocity = Vector3.ClampMagnitude(currentVelocity, speed);
-        transform.position += currentVelocity * Time.deltaTime;
-        transform.forward = currentVelocity;
+        CalculateDirection();
+        CheckForHit();
     }
 
     private Vector3 Alignment()
@@ -105,9 +118,25 @@ public class Boid : MonoBehaviour
             neighbours.Remove(boid);
         }
 
-        // if (other.gameObject.tag == "Wasser")
-        // {
-        //     CalculateDirection();
-        // }
+        if (other.gameObject.tag == "Wasser")
+        {
+            CalculateDirection();
+        }
+    }
+
+    private void CalculateDirection()
+    {
+        desiredVelocity += transform.forward * speed;
+
+        desiredVelocity += Alignment();
+        desiredVelocity += Cohesion();
+        desiredVelocity += Separation();
+
+        Vector3 diff = desiredVelocity - currentVelocity;
+        currentVelocity += diff * Time.deltaTime;
+
+        currentVelocity = Vector3.ClampMagnitude(currentVelocity, speed);
+        transform.position += currentVelocity * Time.deltaTime;
+        transform.forward = currentVelocity;
     }
 }
