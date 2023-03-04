@@ -1,26 +1,34 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
+using Unity.EditorCoroutines.Editor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.Windows.Speech;
+using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 public class RayCast : MonoBehaviour
 {
-    [SerializeField] private LayerMask CollectablesLayerMask;
-    [SerializeField] private LayerMask CollectorLayerMask;
-    [SerializeField] private GameObject canvas;
+    [Header("LayerMasks")] [SerializeField]
+    private LayerMask CollectablesLayerMask;
 
-    [SerializeField] private Animation animation;
+    [SerializeField] private LayerMask CollectorLayerMask;
+
+    [Header("Canvas")] [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject pickUpPanel;
+    [SerializeField] private TMP_Text tmpText;
+    [SerializeField] private TMP_Text pickUpText;
+
+    [Header("Animations")] [SerializeField]
+    private Animation animation;
+
     [SerializeField] private AnimationClip AnimationClip;
 
+    [Header("Gameobjects")] [SerializeField]
+    private Transform parent;
+
+    private GameObject[] KeyCards;
+
     private Vector3 forward;
-
-    [SerializeField] private Transform parent;
-
-    [SerializeField] private GameObject[] KeyCards;
 
     private bool rayCast;
     private bool rayCastCollector;
@@ -30,8 +38,6 @@ public class RayCast : MonoBehaviour
 
     private void Start()
     {
-    
-
         KeyCards = new GameObject[4];
         for (int i = 0; i < KeyCards.Length; i++)
         {
@@ -51,18 +57,25 @@ public class RayCast : MonoBehaviour
 
         if (rayCast || rayCastCollector)
         {
-            canvas.SetActive(true);
+            panel.SetActive(true);
         }
         else
         {
-            canvas.SetActive(false);
+            tmpText.SetText("Interact (E)");
+            panel.SetActive(false);
         }
-
 
         if (!executeOnce)
         {
-            if (rayCast && Input.GetKeyDown(KeyCode.E))
+            if (gotACard && rayCast && Input.GetKeyDown(KeyCode.E))
             {
+                tmpText.SetText("You already got a KeyCard");
+                return;
+            }
+
+            if (rayCast && Input.GetKeyDown(KeyCode.E) && !gotACard)
+            {
+                StartCoroutine(PickedUpKeyCardCanvas());
                 executeOnce = true;
                 gotACard = CollectCards();
                 Destroy(hit.transform.gameObject);
@@ -71,10 +84,25 @@ public class RayCast : MonoBehaviour
             executeOnce = false;
         }
 
+        if (!gotACard && Input.GetKeyDown(KeyCode.E) && rayCastCollector)
+        {
+            tmpText.SetText("You dont have a KeyCard yet");
+            return;
+        }
+
         if (gotACard && Input.GetKeyDown(KeyCode.E) && rayCastCollector)
         {
             InputCards();
         }
+    }
+
+    IEnumerator PickedUpKeyCardCanvas()
+    {
+        pickUpText.SetText("You just got a KeyCard");
+        pickUpPanel.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+        pickUpPanel.SetActive(false);
     }
 
     bool CollectCards()
@@ -84,7 +112,6 @@ public class RayCast : MonoBehaviour
             if (!hitonce)
             {
                 hitonce = true;
-                Debug.Log("collected a card");
                 return true;
             }
         }
@@ -106,9 +133,9 @@ public class RayCast : MonoBehaviour
 
                 if (hitonce)
                 {
+                    tmpText.SetText("Successfully added a KeyCard");
                     animation.Play("AI_Stabalizer");
                     hitonce = false;
-                    Debug.Log("successfully input a card");
                     KeyCards[i].SetActive(true);
                 }
             }
