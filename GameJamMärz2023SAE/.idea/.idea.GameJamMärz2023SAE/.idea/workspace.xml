@@ -97,23 +97,4 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/RayCast.cs</url>
-          <line>95</line>
-          <properties documentPath="C:\Users\stefa\OneDrive\Dokumente\GitHub\GameJamMaerz2023SAE\GameJamMärz2023SAE\Assets\Scripts\RayCast.cs" initialLine="88" containingFunctionPresentation="method 'InputCards'">
-            <startOffsets>
-              <option value="2191" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2197" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
 </project>

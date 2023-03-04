@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
 public class RayCast : MonoBehaviour
 {
     [SerializeField] private LayerMask CollectablesLayerMask;
+    [SerializeField] private LayerMask CollectorLayerMask;
     [SerializeField] private GameObject canvas;
 
     private Vector3 forward;
@@ -15,9 +18,11 @@ public class RayCast : MonoBehaviour
     [SerializeField] private Transform parent;
 
     [SerializeField] private GameObject[] KeyCards;
-    private bool rayCast;
 
-    bool hitonce = false;
+    private bool rayCast;
+    private bool rayCastCollector;
+    private bool gotACard;
+    private bool hitonce = false;
 
     RaycastHit hit;
 
@@ -32,8 +37,6 @@ public class RayCast : MonoBehaviour
         }
     }
 
-    private bool gotACard;
-
 
     void Update()
     {
@@ -42,8 +45,9 @@ public class RayCast : MonoBehaviour
 
 
         rayCast = Physics.Raycast(transform.position, forward, out hit, 2f, CollectablesLayerMask);
+        rayCastCollector = Physics.Raycast(transform.position, forward, out hit, 2f, CollectorLayerMask);
 
-        if (rayCast)
+        if (rayCast || rayCastCollector)
         {
             canvas.SetActive(true);
         }
@@ -53,19 +57,21 @@ public class RayCast : MonoBehaviour
         }
 
 
-        if (rayCast && Input.GetKeyDown(KeyCode.E))
+        if (!executeOnce)
         {
-            if (!executeOnce)
+            if (rayCast && Input.GetKeyDown(KeyCode.E))
             {
                 executeOnce = true;
                 gotACard = CollectCards();
+                //Destroy(hit.transform.gameObject);
             }
 
             executeOnce = false;
-            if (gotACard)
-            {
-                InputCards();
-            }
+        }
+
+        if (gotACard && Input.GetKeyDown(KeyCode.E) && rayCastCollector)
+        {
+            InputCards();
         }
     }
 
@@ -79,6 +85,7 @@ public class RayCast : MonoBehaviour
                 hitonce = true;
                 // Destroy(hit.transform.gameObject);
                 Debug.Log("collected a card");
+               // Destroy(hit.transform.gameObject);
                 return true;
             }
         }
@@ -98,7 +105,7 @@ public class RayCast : MonoBehaviour
                     break;
                 }
 
-                if (Input.GetKeyDown(KeyCode.E) && hitonce /*&& has one key */)
+                if (hitonce /*&& has one key */)
                 {
                     KeyCards[i].SetActive(true);
                     hitonce = false;

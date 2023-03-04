@@ -2584,7 +2584,7 @@ GameObject:
   - component: {fileID: 1878530608}
   - component: {fileID: 1878530607}
   - component: {fileID: 1878530606}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (10)
   m_TagString: Collectables
   m_Icon: {fileID: 0}
@@ -2720,6 +2720,9 @@ MonoBehaviour:
   CollectablesLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  CollectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   canvas: {fileID: 606314209}
   parent: {fileID: 1878530609}
   KeyCards: []
