@@ -12,7 +12,7 @@ public class CubeRotation : MonoBehaviour
 
     private void Update()
     {
-        var yMovement = Mathf.Sin(Time.time * freq) * amp;
+        float yMovement = Mathf.Sin(Time.time * freq) * amp;
         transform.Translate(0, yMovement * Time.deltaTime, 0);
 
         transform.Rotate(0, 1f * rotateSpeed, 0);
