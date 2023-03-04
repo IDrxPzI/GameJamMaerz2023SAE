@@ -14,7 +14,7 @@ public class InteractionScript : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        Debug.DrawRay(transform.position, Vector3.forward, Color.red, 8);
+        //Debug.DrawRay(transform.position, Vector3.forward, Color.red, 8);
 
         bool hitSomething = Physics.Raycast(ray, out hit, 4);
         Debug.Log(hitSomething);
