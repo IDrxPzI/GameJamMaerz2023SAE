@@ -24,7 +24,6 @@ public class RayCast : MonoBehaviour
     private bool gotACard;
     private bool hitonce = false;
 
-    RaycastHit hit;
 
     private bool executeOnce = false;
 
@@ -43,9 +42,9 @@ public class RayCast : MonoBehaviour
         forward = transform.TransformDirection(Vector3.forward) * 2;
         Debug.DrawRay(transform.position, forward, Color.green);
 
-
+        RaycastHit hit;
         rayCast = Physics.Raycast(transform.position, forward, out hit, 2f, CollectablesLayerMask);
-        rayCastCollector = Physics.Raycast(transform.position, forward, out hit, 2f, CollectorLayerMask);
+        rayCastCollector = Physics.Raycast(transform.position, forward, 2f, CollectorLayerMask);
 
         if (rayCast || rayCastCollector)
         {
@@ -63,7 +62,7 @@ public class RayCast : MonoBehaviour
             {
                 executeOnce = true;
                 gotACard = CollectCards();
-                //Destroy(hit.transform.gameObject);
+                Destroy(hit.transform.gameObject);
             }
 
             executeOnce = false;
@@ -81,11 +80,8 @@ public class RayCast : MonoBehaviour
         {
             if (!hitonce)
             {
-                //KeyCards[i] = parent.GetChild(i).gameObject;
                 hitonce = true;
-                // Destroy(hit.transform.gameObject);
                 Debug.Log("collected a card");
-               // Destroy(hit.transform.gameObject);
                 return true;
             }
         }
@@ -110,8 +106,7 @@ public class RayCast : MonoBehaviour
                     KeyCards[i].SetActive(true);
                     hitonce = false;
                     Debug.Log("successfully input a card");
-
-                    //Destroy(hit.transform.gameObject);
+                    
                 }
             }
         }
