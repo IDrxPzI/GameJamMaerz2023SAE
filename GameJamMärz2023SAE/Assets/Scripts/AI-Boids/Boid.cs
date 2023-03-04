@@ -10,10 +10,12 @@ public class Boid : MonoBehaviour
 
     public float speed;
 
-    public GameObject raycastObject;
-
     public float radius;
     public float alpha;
+
+    public LayerMask layerMask;
+
+    private Vector3 midPosition;
 
     private void OnDrawGizmos()
     {
@@ -23,16 +25,28 @@ public class Boid : MonoBehaviour
             radius);
     }
 
-    void CheckForHit()
+    public Vector3 SteerTowards(Vector3 _vector)
+    {
+        Vector3 v = _vector.normalized * speed - desiredVelocity;
+        return Vector3.ClampMagnitude(v, 5);
+    }
+    bool CheckForHit()
     {
         // Vector3 fwd = transform.TransformDirection(Vector3.forward);
         // Debug.DrawRay(new Vector3(transform.position.x - 0.5f, transform.position.y + 0.40f, transform.position.z),
         //     fwd * 10, Color.green);
         // RaycastHit objectHit;
-
-        Physics.CheckSphere(
-            new Vector3(transform.position.x - 0.5f, transform.position.y + 0.40f, transform.position.z - 0.45f),
-            radius);
+        midPosition = new Vector3(transform.position.x - 0.5f, transform.position.y + 0.40f,
+            transform.position.z - 0.45f);
+        RaycastHit hit;
+        if (Physics.SphereCast(midPosition, radius, transform.forward, out hit, 5f, layerMask))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void Start()
@@ -126,6 +140,11 @@ public class Boid : MonoBehaviour
 
     private void CalculateDirection()
     {
+        if (CheckForHit())
+        {
+            
+        }
+        
         desiredVelocity += transform.forward * speed;
 
         desiredVelocity += Alignment();
