@@ -21,9 +21,9 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < spawnAmount; i++)
         {
-            transformX = transform.position.x + Random.insideUnitSphere.x * 20;
-            transformY = transform.position.y + Random.insideUnitSphere.y * 10;
-            transformZ = transform.position.z + Random.insideUnitSphere.z * 20;
+            transformX = transform.position.x + Random.insideUnitSphere.x * 22.5f;
+            transformY = transform.position.y + Random.insideUnitSphere.y * 25;
+            transformZ = transform.position.z + Random.insideUnitSphere.z * 22.5f;
 
             Vector3 spawnPos = new Vector3(transformX, transformY, transformZ);
             var clone = Instantiate(prefabs);

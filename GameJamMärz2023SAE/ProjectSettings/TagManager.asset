@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Moon
   - Wasser
+  - Boid
   layers:
   - Default
   - TransparentFX
