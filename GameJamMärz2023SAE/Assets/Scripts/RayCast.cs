@@ -23,8 +23,6 @@ public class RayCast : MonoBehaviour
     private bool rayCastCollector;
     private bool gotACard;
     private bool hitonce = false;
-
-
     private bool executeOnce = false;
 
     private void Start()
@@ -101,12 +99,11 @@ public class RayCast : MonoBehaviour
                     break;
                 }
 
-                if (hitonce /*&& has one key */)
+                if (hitonce)
                 {
                     KeyCards[i].SetActive(true);
                     hitonce = false;
                     Debug.Log("successfully input a card");
-                    
                 }
             }
         }
