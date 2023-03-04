@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: 4a7c42006e1b86a4ab29982146d5b60d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Leaf_Pinus-ponderosa_bqm.001_bqm
     second: {fileID: 2100000, guid: 7f180b088033e0949adba164b4ab0cad, type: 2}
   - first:
