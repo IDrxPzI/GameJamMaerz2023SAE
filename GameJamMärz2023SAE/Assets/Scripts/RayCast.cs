@@ -56,7 +56,7 @@ public class RayCast : MonoBehaviour
 
         if (!executeOnce)
         {
-            if (rayCast && Input.GetKeyDown(KeyCode.E))
+            if (rayCast && Input.GetKeyDown(KeyCode.E) && !gotACard)
             {
                 executeOnce = true;
                 gotACard = CollectCards();
