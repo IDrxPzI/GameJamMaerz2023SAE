@@ -13,6 +13,9 @@ public class RayCast : MonoBehaviour
     [SerializeField] private LayerMask CollectorLayerMask;
     [SerializeField] private GameObject canvas;
 
+    [SerializeField] private Animation animation;
+    [SerializeField] private AnimationClip AnimationClip;
+
     private Vector3 forward;
 
     [SerializeField] private Transform parent;
@@ -27,6 +30,8 @@ public class RayCast : MonoBehaviour
 
     private void Start()
     {
+    
+
         KeyCards = new GameObject[4];
         for (int i = 0; i < KeyCards.Length; i++)
         {
@@ -101,9 +106,10 @@ public class RayCast : MonoBehaviour
 
                 if (hitonce)
                 {
-                    KeyCards[i].SetActive(true);
+                    animation.Play("AI_Stabalizer");
                     hitonce = false;
                     Debug.Log("successfully input a card");
+                    KeyCards[i].SetActive(true);
                 }
             }
         }
