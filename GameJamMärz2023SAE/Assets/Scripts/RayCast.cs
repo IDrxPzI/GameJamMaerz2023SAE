@@ -36,6 +36,8 @@ public class RayCast : MonoBehaviour
     private bool hitonce = false;
     private bool executeOnce = false;
 
+    public static int KeysCollected { get; set; }
+
     private void Start()
     {
         KeyCards = new GameObject[4];
@@ -124,6 +126,7 @@ public class RayCast : MonoBehaviour
         int amount = 4;
         for (int i = 0; i < KeyCards.Length; i++)
         {
+            //muss drin bleiben sonst geht kaputt
             for (int j = 0; j < amount; j++)
             {
                 if (KeyCards[i].activeSelf)
@@ -141,6 +144,7 @@ public class RayCast : MonoBehaviour
             }
         }
 
+        Singleton.keysCollected++;
         gotACard = false;
     }
 }

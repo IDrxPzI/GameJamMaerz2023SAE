@@ -630,6 +630,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &233673053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233673055}
+  - component: {fileID: 233673054}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &233673054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233673053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37471c691f26d45439bd6f20ad64df74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &233673055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233673053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.651783, y: 0.86239624, z: -33.684063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273746425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,7 +1909,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc827f118b49171458a249c80c108256, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e820a4434559844aa2057b53f49b524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gamesettings: {fileID: 11400000, guid: 95d67c46198ae3e448976308973adc31, type: 2}
@@ -2803,10 +2847,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1587530272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad71aa1cd737014dbd8cf5fd3ae1e4f, type: 3}
+  m_Script: {fileID: 11500000, guid: d5c2f83b2c1e94d419beef95ad63a70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 10
   gamesettings: {fileID: 11400000, guid: 95d67c46198ae3e448976308973adc31, type: 2}
   isGrounded: 0
 --- !u!114 &1587530279
@@ -3006,7 +3050,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1587530272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc827f118b49171458a249c80c108256, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e820a4434559844aa2057b53f49b524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gamesettings: {fileID: 11400000, guid: 95d67c46198ae3e448976308973adc31, type: 2}
