@@ -140,6 +140,7 @@ public class RayCast : MonoBehaviour
             //muss drin bleiben sonst geht kaputt
             for (int j = 0; j < amount; j++)
             {
+                DontDestroyOnLoad(gameObject);
                 if (KeyCards[i].activeSelf)
                 {
                     break;
