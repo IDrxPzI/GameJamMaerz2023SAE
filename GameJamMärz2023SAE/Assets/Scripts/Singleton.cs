@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
+    public static int keysCollected { get; set; }
+
+    public GameObject parent;
+    public GameObject canvas;
+
     private static Singleton instance = null;
+
 //
     public static Singleton Instance
     {
@@ -25,8 +31,6 @@ public class Singleton : MonoBehaviour
             return instance;
         }
     }
-
-    public static int keysCollected { get; set; }
 
 
     private void Awake()

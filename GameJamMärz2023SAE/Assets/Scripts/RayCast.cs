@@ -14,7 +14,8 @@ public class RayCast : MonoBehaviour
 
     [SerializeField] private LayerMask CollectorLayerMask;
 
-    [Header("Canvas")] [SerializeField] private GameObject panel;
+    [Header("Canvas")] [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject panel;
     [SerializeField] private GameObject pickUpPanel;
     [SerializeField] private TMP_Text tmpText;
     [SerializeField] private TMP_Text pickUpText;
@@ -44,6 +45,14 @@ public class RayCast : MonoBehaviour
         {
             KeyCards[i] = parent.GetChild(i).gameObject;
         }
+
+        if (parent == null)
+        {
+            Transform go = GameObject.FindWithTag("Parent").transform;
+            //parent = getc
+        }
+
+        DontDestroyOnLoad(canvas);
     }
 
 
@@ -53,8 +62,8 @@ public class RayCast : MonoBehaviour
         Debug.DrawRay(transform.position, forward, Color.green);
 
         RaycastHit hit;
-        rayCast = Physics.Raycast(transform.position, forward, out hit, 2f, CollectablesLayerMask);
-        rayCastCollector = Physics.Raycast(transform.position, forward, 2f, CollectorLayerMask);
+        rayCast = Physics.Raycast(transform.position, forward, out hit, 5f, CollectablesLayerMask);
+        rayCastCollector = Physics.Raycast(transform.position, forward, 5f, CollectorLayerMask);
 
         if (rayCast || rayCastCollector)
         {

@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 8944535289211891943}
   - component: {fileID: 8604848196069091935}
   - component: {fileID: 8604848196069091934}
+  - component: {fileID: 5628119879940570598}
   m_Layer: 6
   m_Name: KeyCard
   m_TagString: Untagged
@@ -275,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8604848196069091933}
   m_LocalRotation: {x: -0.38334072, y: -0.27940637, z: -0.36124626, w: 0.802797}
-  m_LocalPosition: {x: 72.55, y: -8.51, z: -62.41}
+  m_LocalPosition: {x: 72.55, y: -4.43, z: -62.41}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -341,3 +342,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.2
   RotAngleY: 150
+--- !u!65 &5628119879940570598
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604848196069091933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5258577, y: 1, z: 4.257044}
+  m_Center: {x: 0.14719667, y: 0.0000017115883, z: -0.113005005}
