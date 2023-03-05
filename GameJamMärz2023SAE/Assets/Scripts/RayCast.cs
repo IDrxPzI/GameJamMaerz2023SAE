@@ -48,7 +48,7 @@ public class RayCast : MonoBehaviour
 
     void Update()
     {
-        forward = transform.TransformDirection(Vector3.forward) * 2;
+        forward = transform.TransformDirection(Vector3.forward) * 5f;
         Debug.DrawRay(transform.position, forward, Color.green);
 
         RaycastHit hit;
