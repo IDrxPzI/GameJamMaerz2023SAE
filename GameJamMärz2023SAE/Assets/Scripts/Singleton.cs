@@ -7,6 +7,7 @@ public class Singleton : MonoBehaviour
 {
     private static Singleton instance = null;
 
+//
     public static Singleton Instance
     {
         get
@@ -27,7 +28,7 @@ public class Singleton : MonoBehaviour
     }
 
     public static int keysCollected { get; set; }
-    
+
 
     private void Awake()
     {
