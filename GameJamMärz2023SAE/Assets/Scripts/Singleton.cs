@@ -16,10 +16,10 @@ public class Singleton : MonoBehaviour
 
             if (instance == null)
             {
-                GameObject gObj = new GameObject();
-                gObj.name = "Singleton";
-                instance = gObj.AddComponent<Singleton>();
-                DontDestroyOnLoad(gObj);
+                GameObject gameobject = new GameObject();
+                gameobject.name = "Singleton";
+                instance = gameobject.AddComponent<Singleton>();
+                DontDestroyOnLoad(gameobject);
             }
 
             return instance;
@@ -28,10 +28,6 @@ public class Singleton : MonoBehaviour
 
     public static int keysCollected { get; set; }
     
-    private void Update()
-    {
-        Debug.Log(keysCollected);
-    }
 
     private void Awake()
     {
@@ -44,5 +40,10 @@ public class Singleton : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log(keysCollected);
     }
 }
