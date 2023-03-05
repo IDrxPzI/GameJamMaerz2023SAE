@@ -197,6 +197,11 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+        
+        if (other.gameObject.tag == "WaldPortal")
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 
     private void OnTriggerExit(Collider other)

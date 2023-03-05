@@ -8,6 +8,7 @@ TagManager:
   - Wasser
   - Collectables
   - MoonPortal
+  - WaldPortal
   layers:
   - Default
   - TransparentFX

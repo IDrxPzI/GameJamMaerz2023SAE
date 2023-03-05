@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mond.unity
     guid: 40dbff5850145424baa58f814309ae8b
+  - enabled: 1
+    path: Assets/Scenes/Wald.unity
+    guid: ef73ad42aba2d894888a951fdea265bb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3d54a0b4ecd69944e9a1c005de35cad4, type: 2}
