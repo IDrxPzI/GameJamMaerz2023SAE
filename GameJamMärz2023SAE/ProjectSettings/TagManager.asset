@@ -9,6 +9,7 @@ TagManager:
   - Collectables
   - MoonPortal
   - WaldPortal
+  - Parent
   layers:
   - Default
   - TransparentFX

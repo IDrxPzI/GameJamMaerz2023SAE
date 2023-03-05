@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 3943755060527899823}
   m_Layer: 7
   m_Name: G0D-Machine
-  m_TagString: Untagged
+  m_TagString: Parent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
