@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Artists: Julian, Sunny, Basti, Karen'
+  m_text: 'Artists: Julian, Sunny, Basti, Karin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3438165705f155947936e7af03226c44, type: 2}
   m_sharedMaterial: {fileID: 7019720125220365780, guid: 3438165705f155947936e7af03226c44, type: 2}
