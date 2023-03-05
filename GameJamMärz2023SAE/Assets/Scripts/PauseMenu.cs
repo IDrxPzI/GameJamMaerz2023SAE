@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     public AudioMixerGroup Music;
     public AudioMixerGroup SFX;
 
-    private bool pauseMenuOn = false;
+    public static bool pauseMenuOn = false;
 
     public void Update()
     {

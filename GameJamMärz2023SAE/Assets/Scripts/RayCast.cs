@@ -72,6 +72,9 @@ public class RayCast : MonoBehaviour
         {
             tmpText.SetText("Interact (E)");
             panel.SetActive(false);
+            bool hitKC = true;
+            Debug.Log(hitKC);
+
         }
 
         if (!executeOnce)
