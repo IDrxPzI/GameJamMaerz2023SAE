@@ -90,10 +90,23 @@ public class RayCast : MonoBehaviour
             return;
         }
 
+        if (Singleton.keysCollected == 4 && Input.GetKeyDown(KeyCode.E) && rayCastCollector)
+        {
+            Debug.Log("you just finished ze gem");
+            tmpText.SetText("you just finished ze gem");
+            EndGame();
+        }
+
         if (gotACard && Input.GetKeyDown(KeyCode.E) && rayCastCollector)
         {
             InputCards();
         }
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("you just finished ze gem");
+        tmpText.SetText("you just finished ze gem");
     }
 
     IEnumerator PickedUpKeyCardCanvas()
@@ -124,6 +137,7 @@ public class RayCast : MonoBehaviour
         int amount = 4;
         for (int i = 0; i < KeyCards.Length; i++)
         {
+            //muss drin bleiben sonst geht kaputt
             for (int j = 0; j < amount; j++)
             {
                 if (KeyCards[i].activeSelf)
@@ -141,6 +155,7 @@ public class RayCast : MonoBehaviour
             }
         }
 
+        Singleton.keysCollected++;
         gotACard = false;
     }
 }
