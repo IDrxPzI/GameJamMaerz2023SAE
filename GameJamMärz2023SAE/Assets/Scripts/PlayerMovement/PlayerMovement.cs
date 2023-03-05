@@ -39,7 +39,14 @@ public class PlayerMovement : MonoBehaviour
         playerController = GetComponent<CharacterController>();
         mouselook = GetComponentsInChildren<MouseLook>();
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //if (!PauseMenu.pauseMenuOn)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
+        //else if(PauseMenu.pauseMenuOn)
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
 
         player = transform.gameObject;
         DontDestroyOnLoad(player);
@@ -197,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
-        
+
         if (other.gameObject.tag == "WaldPortal")
         {
             SceneManager.LoadScene(3);
