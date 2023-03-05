@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = transform.gameObject;
         DontDestroyOnLoad(player);
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  runSpeed: 5
+  runSpeed: 7
   jumpHeight: 0.7
   gravityValue: -12
   sprintSpeed: 10
