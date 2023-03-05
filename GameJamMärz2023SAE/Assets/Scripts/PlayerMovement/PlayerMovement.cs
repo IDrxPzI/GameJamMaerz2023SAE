@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerInput), typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -29,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public static bool openMenu { get; private set; }
     public static int getInput { get; private set; }
 
+    private GameObject player;
+
     private void Awake()
     {
         //transform.position = startPosition;
@@ -37,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
         mouselook = GetComponentsInChildren<MouseLook>();
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        DontDestroyOnLoad(player);
     }
 
     #region InputActions
@@ -185,6 +191,11 @@ public class PlayerMovement : MonoBehaviour
             playerSpeed = 5;
             inWater = true;
             gamesettings.gravityValue = -6;
+        }
+
+        if (other.gameObject.tag == "MoonPortal")
+        {
+            SceneManager.LoadScene(2);
         }
     }
 
