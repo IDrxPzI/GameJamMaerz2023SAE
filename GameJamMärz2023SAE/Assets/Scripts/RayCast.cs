@@ -3,6 +3,7 @@ using TMPro;
 using Unity.EditorCoroutines.Editor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
@@ -58,13 +59,12 @@ public class RayCast : MonoBehaviour
         if (rayCast || rayCastCollector)
         {
             panel.SetActive(true);
+           
         }
         else
         {
             tmpText.SetText("Interact (E)");
             panel.SetActive(false);
-            bool hitKC = true;
-            Debug.Log(hitKC);
 
         }
 
@@ -155,6 +155,7 @@ public class RayCast : MonoBehaviour
                     animation.Play("AI_Stabalizer");
                     hitonce = false;
                     KeyCards[i].SetActive(true);
+                    SceneManager.LoadScene(1);
                 }
             }
         }
